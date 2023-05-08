@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Home.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json" />    
+    <title>Reino Doce</title>
+</head>
+<body>
+    <div>
+        <header>
+            <h1>Bem vinda ao Reino Doce!</h1>
+            <h2>Para sortear um personagem, digite um número de 0 a 10</h2>
+            <form>
+                <input type="number" name="personagem" id="personagem">
+                <button>Sortear</button>
+            </form>         
+        </header>
+        <main id="conteudo">
+            <img src="https://pbs.twimg.com/media/FEfrQoMWYAAe7fM.jpg" alt=""><!-- Apenas se eu conseguir colocar um diaxo de imagem aqui -->
+            <h3>Nome do personagem</h3>
+            <p>Tipo</p>
+            <p class="descricao">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur quas repellendus ipsam voluptates incidunt? Incidunt similique, cum iure magni delectus at? Dolores, dicta vero nobis numquam illum delectus nisi.</p>
+        </main>
+    </div>
+    <!-- FAZER MENU LATERAL PARA COLOCAR AS OPÇÕES DE (CRIAR)/ATUALIZAR/(LER)/DELETAR -->
+    <script src="Home.js"></script>
+    <script>navigator.serviceWorker.register("service-worker.js")</script> 
+</body>
+</html>
