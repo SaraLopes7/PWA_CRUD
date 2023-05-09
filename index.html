@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=chrome">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#9400D3">
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="manifest.json" />
@@ -28,6 +29,34 @@
     </div>
     <!-- FAZER MENU LATERAL PARA COLOCAR AS OPÇÕES DE (CRIAR)/ATUALIZAR/(LER)/DELETAR -->
     <script src="./assets/js/index.js"></script>
-    <script>navigator.serviceWorker.register("service-worker.js")</script> 
+    <script>navigator.serviceWorker.register("service-worker.js")</script>
+    <script>
+        let newWorker;
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js').then(reg => {
+                reg.addEventListener('updatefound', () => {
+                    // A wild service worker has appeared in reg.installing!
+                    newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', () => {
+                        // Has network.state changed?
+                        switch (newWorker.state) {
+                            case 'installed':
+                            if (navigator.serviceWorker.controller) {
+                                // new update available
+                            }
+                            // No update available
+                            break;
+                        }
+                    });
+                });
+            });
+            let refreshing;
+            navigator.serviceWorker.addEventListener('controllerchange', function () {
+                if (refreshing) return;
+                window.location.reload();
+                refreshing = true;
+            });
+        }
+    </script>
 </body>
 </html>
