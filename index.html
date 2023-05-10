@@ -29,7 +29,11 @@
     </div>
     <!-- FAZER MENU LATERAL PARA COLOCAR AS OPÇÕES DE (CRIAR)/ATUALIZAR/(LER)/DELETAR -->
     <script src="./assets/js/index.js"></script>
-    <script>navigator.serviceWorker.register("service-worker.js")</script>
+    <script>
+        if (typeof navigator.serviceWorker !== 'undefined') {
+          navigator.serviceWorker.register('service-worker.js')
+        }
+    </script>
     <script>
         let newWorker;
         if ('serviceWorker' in navigator) {
